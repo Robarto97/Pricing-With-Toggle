@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+$gradient: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+$veryLightGrayishBlue: hsl(240, 78%, 98%);
+$lightGrayishBlue: hsl(234, 14%, 74%);
+$grayishBlue: hsl(233, 13%, 49%);
+$darkGrayishBlue: hsl(232, 13%, 33%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+body {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(240, 100%, 98%);
+  background-image: url(images/bg-top.svg);
+  background-position: top -5vh right -50vw;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.25em;
+  gap: 2em;
+  h1 {
+    color: $darkGrayishBlue;
+    font-size: 2.25em;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+    span {
+      color: $grayishBlue;
+    }
+    #checkbox {
+      appearance: none;
+      width: 58px;
+      height: 32px;
+      background: linear-gradient(to right, $gradient);
+      border-radius: 2em;
+      position: relative;
+    }
+    #checkbox::after {
+      content: "";
+      width: 25px;
+      height: 25px;
+      background-color: $veryLightGrayishBlue;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 4px;
+      transform: translate(0, -50%);
+      transition: transform 0.5s ease;
+    }
+    #checkbox:checked::after {
+      transform: translate(100%, -50%);
+    }
+  }
+  .card {
+    background-color: white;
+    border-radius: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+    padding: 1.5em;
+    h2 {
+      color: $grayishBlue;
+      font-size: 1.25em;
+    }
+    ul {
+      width: 100%;
+      .price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.75em;
+        color: $darkGrayishBlue;
+        padding-top: unset;
+        span {
+          font-size: 1.75em;
+        }
+      }
+      li:not(:first-of-type) {
+        font-size: 1.2em;
+        color: $grayishBlue;
+      }
+      li {
+        border-bottom: 1px solid $lightGrayishBlue;
+        padding: 0.75em;
+      }
+    }
+    button {
+      width: 100%;
+      border: 1px solid transparent;
+      padding: 0.75em;
+      border-radius: 0.5em;
+      text-transform: uppercase;
+      color: $veryLightGrayishBlue;
+      background: linear-gradient(to right, $gradient);
+      font-weight: 700;
+      font-size: 1em;
+      letter-spacing: 1px;
+      margin: 0.75em 0;
+    }
+  }
+  .card:nth-child(2n) {
+    background: linear-gradient(to bottom, $gradient);
+    h2 {
+      color: $veryLightGrayishBlue;
+    }
+    ul {
+      li {
+        color: $veryLightGrayishBlue;
+      }
+    }
+    button {
+      background: $veryLightGrayishBlue;
+      color: hsl(237, 63%, 64%);
+    }
+  }
+}
